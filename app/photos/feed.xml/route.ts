@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const siteUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    : process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
-      ? "https://photos.aram.sh"
+  const siteUrl =
+    process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
+      ? "https://media.aram.sh"
       : "http://localhost:3000";
 
   try {
