@@ -1,5 +1,5 @@
 # Media
-###### https://student.aram.sh/photos
+###### https://media.aram.sh/photos
 A site to contain my photos
 
 ## Data storage
