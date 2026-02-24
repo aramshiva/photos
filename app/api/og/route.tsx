@@ -44,7 +44,7 @@ export async function GET(request: Request) {
             <p
               style={{
                 color: "white",
-                fontSize: 48,
+                fontSize: 56,
                 fontWeight: 600,
               }}
             >

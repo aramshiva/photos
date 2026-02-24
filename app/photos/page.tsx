@@ -1,13 +1,16 @@
 import PhotosPage from "./components/Photos";
-import type { Metadata } from 'next'
- 
+import type { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Photos by Aram Shiva',
-  description: 'A collection of photos by Aram Shiva',
-}
+  title: "Photos by Aram Shiva",
+  description: "A collection of photos by Aram Shiva",
+  openGraph: {
+    images: ["/og.png"],
+    siteName: "Photos by Aram Shiva",
+  },
+};
 
 export default function Home() {
-
   return (
     <>
       <head>
