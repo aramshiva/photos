@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Media
+###### https://student.aram.sh/photos
+A site to contain my photos
 
-## Getting Started
+## Data storage
+Data for Photos is stored in two places:
+- [Flickr](https://www.flickr.com/services/developer/) and there generous API for photo hosting and easy photo uploads.
+- [Upstash Redis](https://upstash.com) for view counts (which is added onto Flickr)
 
+## Local development
 First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then add an enviornment variable data, example enviornment values can be found below.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Env
+Example enviornment values can be found below.
+```env
+FLICKR_KEY=8191c...
+FLICKR_SECRET=b18be...
+FLICKR_USER=12131232
+UPSTASH_REDIS_REST_URL="https://dog-cat-11111.upstash.io"
+UPSTASH_REDIS_REST_TOKEN="..."
+```
