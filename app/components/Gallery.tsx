@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Modal from "./Modal";
 
 interface Photo {
@@ -22,7 +21,6 @@ export default function Gallery({
 }: {
   initialPhotoId?: string;
 }) {
-  const router = useRouter();
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedPhotoId, setSelectedPhotoId] = useState<string | null>(
@@ -41,7 +39,7 @@ export default function Gallery({
 
   const selectPhoto = (id: string) => {
     setSelectedPhotoId(id);
-    window.history.pushState(null, "", `/${id}`);
+    window.history.pushState(null, "", `/p/${id}`);
   };
 
   const closePhoto = () => {
@@ -71,7 +69,7 @@ export default function Gallery({
             />
             {photo.title && (
               <>
-                <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-0 rounded-xl bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 <div className="pointer-events-none absolute right-3 bottom-3 text-right text-white opacity-0 transition-opacity group-hover:opacity-100">
                   <p className="font-medium">{photo.title}</p>
                 </div>

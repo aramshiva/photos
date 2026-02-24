@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -94,23 +95,23 @@ const [fullscreen, setFullscreen] = useState(false);
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-2 md:p-4"
       onClick={onClose}
     >
       {details ? (
       <div
-        className="grid max-h-[90vh] w-full max-w-6xl grid-cols-1 overflow-hidden rounded-lg bg-white md:grid-cols-2"
+        className="grid max-h-[95vh] w-full max-w-6xl grid-cols-1 overflow-y-auto rounded-lg bg-white md:max-h-[90vh] md:grid-cols-2 md:overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-white">
+        <div className="relative flex min-h-[40vh] items-center justify-center overflow-hidden bg-white md:min-h-[60vh]">
           {displaySize && (
             <Image
               src={displaySize.source}
               alt={details?.title || ""}
               width={displaySize.width}
               height={displaySize.height}
-              className="max-h-[90vh] w-full object-contain"
-              sizes="50vw"
+              className="max-h-[50vh] w-full object-cover md:max-h-[90vh]"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           )}
           {displaySize && (
@@ -124,16 +125,15 @@ const [fullscreen, setFullscreen] = useState(false);
             </Button>
           )}
         </div>
-
         {fullscreen && displaySize && (
           <div
-            className="fixed inset-0 z-[60] overflow-auto bg-black"
+            className="fixed inset-0 z-60 overflow-auto bg-black"
             onClick={() => setFullscreen(false)}
           >
             <Button
               variant="ghost"
               size="icon"
-              className="fixed right-4 top-4 z-[61] bg-black/50 text-white hover:bg-black/70 hover:text-white"
+              className="fixed right-4 top-4 z-61 bg-black/50 text-white hover:bg-black/70 hover:text-white"
               onClick={() => setFullscreen(false)}
             >
               <Minimize2 className="size-4" />
@@ -147,7 +147,7 @@ const [fullscreen, setFullscreen] = useState(false);
           </div>
         )}
 
-        <div className="overflow-y-auto p-6">
+        <div className="overflow-y-auto p-4 md:p-6">
           {details && (
             <div className="flex min-h-full flex-col">
               {details.title && (
@@ -208,8 +208,8 @@ const [fullscreen, setFullscreen] = useState(false);
                 )}
               </div>
               <p className="mt-auto pt-4 pb-2">{details.views} views</p>
-              <div className="flex gap-2 items-center">
-                <div className="flex min-w-0 flex-1 items-center gap-2 rounded-md border pl-3 text-sm">
+              <div className="flex flex-wrap gap-2 items-center">
+                <div className="flex min-w-0 w-full items-center gap-2 rounded-md border pl-3 text-sm md:w-auto md:flex-1">
                   <span className="truncate">{`${window.location.origin}/p/${details.id}`}</span>
                   <Button
                     variant="outline"
@@ -227,7 +227,7 @@ const [fullscreen, setFullscreen] = useState(false);
                 </div>
                 <Button
                   variant="outline"
-                  className="w-20"
+                  className="flex-1 md:w-20 md:flex-none"
                   onClick={() => {
                     const url = `${window.location.origin}/p/${details.id}`;
                     window.open(
@@ -240,7 +240,7 @@ const [fullscreen, setFullscreen] = useState(false);
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-20"
+                  className="flex-1 md:w-20 md:flex-none"
                   onClick={() => {
                     const url = `${window.location.origin}/p/${details.id}`;
                     window.open(
@@ -253,7 +253,7 @@ const [fullscreen, setFullscreen] = useState(false);
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-20"
+                  className="flex-1 md:w-20 md:flex-none"
                   onClick={() => {
                     const url = `${window.location.origin}/p/${details.id}`;
                     navigator.share({ url });
@@ -267,7 +267,7 @@ const [fullscreen, setFullscreen] = useState(false);
         </div>
       </div>
       ) : (
-        <div className="flex items-center justify-center bg-white px-108 py-92 rounded-lg">
+        <div className="flex items-center justify-center bg-white px-20 py-32 rounded-lg md:px-108 md:py-92">
           <p className="text-zinc-700">Loading...</p>
         </div>
       )}
