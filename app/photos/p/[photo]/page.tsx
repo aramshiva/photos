@@ -35,7 +35,7 @@ export async function generateMetadata({
 
   if (!info) return {};
 
-  const siteUrl = process.env.SITE_URL ?? "https://photos.example.com";
+  const siteUrl = process.env.SITE_URL ?? "https://media.aram.sh";
   const ogUrl = `${siteUrl}/api/og?url=${encodeURIComponent(info.imageUrl)}&title=${encodeURIComponent(info.title)}`;
 
   return {
