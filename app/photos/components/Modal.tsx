@@ -210,13 +210,13 @@ const [fullscreen, setFullscreen] = useState(false);
               <p className="mt-auto pt-4 pb-2">{details.views} views</p>
               <div className="flex flex-wrap gap-2 items-center">
                 <div className="flex min-w-0 w-full items-center gap-2 rounded-md border pl-3 text-sm md:w-auto md:flex-1">
-                  <span className="truncate">{`${window.location.origin}/p/${details.id}`}</span>
+                  <span className="truncate">{`${window.location.origin}/photos/p/${details.id}`}</span>
                   <Button
                     variant="outline"
                     className="ml-auto shrink-0 bg-transparent border-none shadow-none"
                     onClick={() => {
                       navigator.clipboard.writeText(
-                        `${window.location.origin}/p/${details.id}`
+                        `${window.location.origin}/photos/p/${details.id}`
                       );
                       setCopied(true);
                       setTimeout(() => setCopied(false), 2000);
@@ -229,7 +229,7 @@ const [fullscreen, setFullscreen] = useState(false);
                   variant="outline"
                   className="flex-1 md:w-20 md:flex-none"
                   onClick={() => {
-                    const url = `${window.location.origin}/p/${details.id}`;
+                    const url = `${window.location.origin}/photos/p/${details.id}`;
                     window.open(
                       `https://x.com/intent/tweet?url=${encodeURIComponent(url)}`,
                       "_blank"
@@ -242,7 +242,7 @@ const [fullscreen, setFullscreen] = useState(false);
                   variant="outline"
                   className="flex-1 md:w-20 md:flex-none"
                   onClick={() => {
-                    const url = `${window.location.origin}/p/${details.id}`;
+                    const url = `${window.location.origin}/photos/p/${details.id}`;
                     window.open(
                       `https://threads.net/intent/post?url=${encodeURIComponent(url)}`,
                       "_blank"
@@ -255,7 +255,7 @@ const [fullscreen, setFullscreen] = useState(false);
                   variant="outline"
                   className="flex-1 md:w-20 md:flex-none"
                   onClick={() => {
-                    const url = `${window.location.origin}/p/${details.id}`;
+                    const url = `${window.location.origin}/photos/p/${details.id}`;
                     navigator.share({ url });
                   }}
                 >

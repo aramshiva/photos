@@ -39,12 +39,12 @@ export default function Gallery({
 
   const selectPhoto = (id: string) => {
     setSelectedPhotoId(id);
-    window.history.pushState(null, "", `/p/${id}`);
+    window.history.pushState(null, "", `/photos/p/${id}`);
   };
 
   const closePhoto = () => {
     setSelectedPhotoId(null);
-    window.history.pushState(null, "", "/");
+    window.history.pushState(null, "", "/photos/");
   };
 
   if (loading) {
