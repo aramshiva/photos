@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "live.staticflickr.com",
       },
+      {
+        protocol: "https",
+        hostname: "i.gr-assets.com",
+      }
     ],
   },
 };
